@@ -1,0 +1,1 @@
+This is website I built in 2015 to learn the MEAN stack. It allows you to save questions and answers and can then quiz you on them later, randomly or in a multiple choice format. I intended to use it to help me learn Czech. This repo will not be maintained, it is just for demonstration
