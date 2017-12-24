@@ -1,0 +1,223 @@
+.selected {
+  color: #3A9FFF; }
+
+.push-down {
+  margin-top: 30px; }
+
+.push-down-sm {
+  margin-top: 20px; }
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.clickable {
+  cursor: pointer; }
+
+.content {
+  padding: 30px;
+  padding-bottom: 100px; }
+
+.form-control {
+  border: none;
+  box-shadow: none;
+  border-radius: 30px;
+  border-width: 3px;
+  border-color: #CCB7B5;
+  border-style: solid;
+  transition: all 0.1s; }
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #3A9FFF; }
+
+body {
+  font-family: Calibri;
+  background-image: url("/images/old_moon.png");
+  background-repeat: repeat; }
+
+.zoom.ng-enter, .zoom.ng-leave {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s; }
+
+.zoom.ng-enter {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn; }
+
+.zoom.ng-leave {
+  -webkit-animation-name: zoomOut;
+  animation-name: zoomOut; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Luckiest Guy;
+  color: #6B7499;
+  text-shadow: 1px 1px 0 #CCB7B5; }
+
+.navbar-brand {
+  font-family: Luckiest Guy;
+  font-size: 2em; }
+
+.btn {
+  color: none;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  font-family: Luckiest Guy;
+  border-radius: 30px;
+  transition: all 0.1s; }
+
+.btn:hover {
+  color: none;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background-color: #7586d2;
+  border-top-width: 1px;
+  border-top-color: lightgrey;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-color: lightgrey;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-color: lightgrey;
+  border-right-style: solid; }
+
+.btn-lg {
+  width: 200px; }
+
+.active {
+  border-bottom-width: 0;
+  background-color: #4f64c6; }
+
+.active:hover {
+  background-color: #4f64c6; }
+
+.brand {
+  font-size: 150%;
+  text-shadow: 3px 3px 0px #CCB7B5;
+  color: #6275CC;
+  transition: all 0.5s;
+  text-decoration: none; }
+
+.brand:hover {
+  text-shadow: 10px 10px 0px #CCB7B5;
+  color: #8897d9; }
+
+.brand:active, .brand:hover, .brand-visited, .brand:link {
+  text-decoration: none; }
+
+.step-number {
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding-right: 30px;
+  width: 70px; }
+
+.step-description {
+  color: #a27c79;
+  text-shadow: 1px 1px 0 #CCB7B5;
+  margin-left: 30px;
+  display: inline; }
+
+.table-centered {
+  margin: 0 auto; }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active {
+  color: white;
+  background-color: #6275CC;
+  border-bottom-width: 4px;
+  border-bottom-color: #3e54bd;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-color: #3e54bd;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-color: #3e54bd;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-color: #3e54bd;
+  border-right-style: solid;
+  transition: all 0.1s; }
+
+.btn-primary:active {
+  border-bottom-width: 0; }
+
+.btn-primary:hover {
+  background-color: #3e54bd;
+  border-bottom-width: 4px;
+  border-bottom-color: #314397;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-color: #314397;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-color: #314397;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-color: #314397;
+  border-right-style: solid; }
+
+.btn-default, .btn-default:hover, .btn-default:active {
+  color: #89625f;
+  background-color: #CCB7B5;
+  border-bottom-width: 4px;
+  border-bottom-color: #b79a97;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-color: #b79a97;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-color: #b79a97;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-color: #b79a97;
+  border-right-style: solid;
+  transition: all 0.1s; }
+
+.btn-default[disabled] {
+  color: #b79a97; }
+
+.btn-default:active {
+  border-bottom-width: 0; }
+
+.btn-default:hover {
+  background-color: #b79a97;
+  border-bottom-width: 4px;
+  border-bottom-color: #a27c79;
+  border-bottom-style: solid;
+  border-top-width: 1px;
+  border-top-color: #a27c79;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-color: #a27c79;
+  border-left-style: solid;
+  border-right-width: 1px;
+  border-right-color: #a27c79;
+  border-right-style: solid; }
+
+.fa-spinner {
+  color: white; }
+
+table, .white-bg {
+  background-color: white;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #b79a97; }
+
+.tag {
+  margin: 5px; }
+
+.separator {
+  border-style: inset;
+  border-width: 3px;
+  border-color: #CCB7B5;
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 40px;
+  margin-bottom: 20px; }
+
+.readable {
+  font-family: Calibri; }
+
+/*# sourceMappingURL=site.css.map */

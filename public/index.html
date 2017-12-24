@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Opens+Sans|Luckiest+Guy' rel='stylesheet' type='text/css'>
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="lib/animate.css/animate.css" />
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="lib/toastr/toastr.css" />
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="css/site.css">
+        <!-- endinject -->
+
+        <base href="/">
+    </head>
+    <body class="container" ng-app="app">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="content">
+            <ms-navbar></ms-navbar>
+            <div class="push-down" ui-view></div>
+        </div>
+
+        <!-- bower:js -->
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="lib/toastr/toastr.js"></script>
+        <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="lib/angular-animate/angular-animate.js"></script>
+        <!-- endbower -->
+
+        <script src="app/artificialselection/artificialselection.js"></script>
+        <script src="app/app.js"></script>
+
+        <!-- inject:js -->
+        <script src="app/BoolFilter.js"></script>
+        <script src="app/EditController.js"></script>
+        <script src="app/FieldFilter.js"></script>
+        <script src="app/HomeController.js"></script>
+        <script src="app/InstanceController.js"></script>
+        <script src="app/JoinFilter.js"></script>
+        <script src="app/QuestionFilter.js"></script>
+        <script src="app/QuizConfigController.js"></script>
+        <script src="app/QuizController.js"></script>
+        <script src="app/QuizService.js"></script>
+        <script src="app/RepositoryService.js"></script>
+        <script src="app/StatsController.js"></script>
+        <script src="app/as-focus.js"></script>
+        <script src="app/ms-navbar.js"></script>
+        <script src="app/ms-question.js"></script>
+        <script src="app/artificialselection/RequestService.js"></script>
+        <script src="app/artificialselection/as-enter.js"></script>
+        <script src="app/artificialselection/as-form.js"></script>
+        <script src="app/artificialselection/as-input.js"></script>
+        <script src="app/artificialselection/as-submit.js"></script>
+        <!-- endinject -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-59756840-1');ga('send','pageview');
+        </script>
+    </body>
+</html>

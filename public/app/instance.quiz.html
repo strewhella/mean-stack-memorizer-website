@@ -1,0 +1,78 @@
+<div ng-controller="QuizController as quizVm" class="text-center push-down">
+
+    <h3>
+        <span class="label label-default">Question {{ quizVm.questionNumber }} of {{ quizVm.total }}</span>
+    </h3>
+
+    <div ng-show="!quizVm.answered">
+        <h2 class="push-down readable">{{ quizVm.question.text | question }}</h2>
+        <br/>
+
+        <div ng-if="quizVm.multipleChoiceAnswers"class="text-justified">
+            <label>Choose your answer</label>
+            <h3 class="clickable"
+               ng-repeat="answer in quizVm.multipleChoiceAnswers"
+               ng-click="quizVm.answer = answer"
+               ng-class="{ 'selected': quizVm.answer === answer }">
+               <i class="fa"
+                  ng-class="{ 'fa-check-circle selected': quizVm.answer === answer, 'fa-circle': quizVm.answer !== answer }"></i>
+                  &nbsp;
+                  <span>{{ answer }}</span>
+            </h3>
+        </div>
+
+        <div class="col-md-3"></div>
+        <div ng-if="!quizVm.multipleChoiceAnswers" class="col-md-6">
+            <input class="form-control text-center" type="text"
+                   ng-model="quizVm.answer"
+                   placeholder="Enter your answer"
+                   as-enter="quizVm.answerQuestion()"
+                   ng-disabled="quizVm.saving"
+                   as-focus="!quizVm.answered && !quizVm.saving" />
+        </div>
+        <div class="col-md-3"></div>
+
+        <div class="col-md-12">
+            <button class="btn btn-primary push-down text-center"
+                    ng-disabled="!quizVm.answer || quizVm.saving"
+                    ng-click="quizVm.answerQuestion()">
+                <span class="text-center">Answer&nbsp;<i class="fa" ng-class="{ 'fa-pencil': !quizVm.saving, 'fa-cog fa-spin': quizVm.saving }"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <div ng-show="quizVm.answered" class="push-down">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Question</th>
+                    <th class="text-center">Correct Answer/s</th>
+                    <th class="text-center">You Answered</th>
+                    <th class="text-center">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="answered in quizVm.answered"
+                    ng-class="{ 'success': answered.attempt.correct, 'danger': !answered.attempt.correct }">
+                    <td class="text-center">{{:: answered.question.text | question }}</td>
+                    <td class="text-center">{{:: answered.question.answers | join:', '  }}</td>
+                    <td class="text-center">{{:: answered.attempt.text }}</td>
+                    <td class="text-center">
+                        <span class="readable label" ng-class="{ 'label-success': answered.attempt.correct, 'label-danger': !answered.attempt.correct }">
+                            {{:: answered.attempt.correct | bool: { true: 'Correct', false: 'Incorrect' } }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <button class="btn btn-default" ng-click="quizVm.nextQuestion()" as-focus="quizVm.answered">
+                <span ng-show="!quizVm.finished">Continue</span>
+                <span ng-show="quizVm.finished">Finish</span>
+                &nbsp;
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>

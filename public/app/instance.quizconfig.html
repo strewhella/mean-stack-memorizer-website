@@ -1,0 +1,48 @@
+<div ng-controller="QuizConfigController as quizVm">
+
+    <div class="text-center">
+        <h4>{{ quizVm.pool.length }} questions in pool</h4>
+        <p class="text-center">Determine the tags you want for your quiz. This will define the pool of potential questions.</p>
+    </div>
+
+    <div class="row">
+        <span class="col-md-6">
+            <h4><span ng-show="quizVm.tagLength(quizVm.selectedTags) > 0" class="label label-primary readable">Selected Tags</span></h4>
+            <button class="btn btn-sm btn-primary tag active-tag readable" ng-repeat="(tag, value) in quizVm.selectedTags" ng-click="quizVm.removeTag(tag)">{{ tag }} <i class="fa fa-minus"></i></button>
+        </span>
+
+        <span class="col-md-6">
+            <h4><span ng-show="quizVm.tagLength(quizVm.potentialTags) > 0" class="label label-default tag readable">Potential Tags</span></h4>
+            <button class="btn btn-sm btn-default tag inactive-tag readable" ng-repeat="(tag, value) in quizVm.potentialTags" ng-click="quizVm.addTag(tag)">{{ tag }} <i class="fa fa-plus"></i></button>
+        </span>
+    </div>
+
+    <accordion close-others="true" class="push-down row col-md-12">
+        <accordion-group ng-repeat="option in quizVm.quizOptions" is-open="option.isOpen" is-disabled="option.requires && quizVm.pool.length < option.requires">
+            <accordion-heading>
+                <div>
+                    <h4>{{ option.heading }}
+                        <span class="pull-right label label-danger readable"
+                              ng-show="option.requires && quizVm.pool.length < option.requires">
+                            Requires at least {{ option.requires }} questions in pool.</span>
+
+                        <i class="pull-right fa"
+                           ng-class="{ 'fa-caret-right': !option.isOpen, 'fa-caret-down': option.isOpen }"
+                           ng-hide="option.requires && quizVm.pool.length < option.requires"></i>
+                    </h4>
+                </div>
+            </accordion-heading>
+
+            <p class="text-center">{{ option.about }}</p>
+
+            <div ng-repeat="input in option.inputs" class="row text-center col-md-offset-5 col-md-2">
+                <label>{{ input.label }}</label>
+                <input class="form-control text-center" type="{{ input.type }}" ng-model="option[input.model]" ng-init="option[input.model] = input.default"/>
+            </div>
+
+            <div class="text-center row col-md-offset-4 col-md-4 push-down-sm">
+                <button class="btn btn-primary" ng-click="quizVm.startQuiz(option)">Start {{ option.heading }} Quiz</button>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

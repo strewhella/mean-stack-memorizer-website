@@ -1,0 +1,53 @@
+﻿<form name="inputForm" novalidate>
+    <div ng-class="outerGroupClass">
+        <label ng-class="labelClass" for="inputField">{{ label }}</label>
+        <div ng-class="innerGroupClass">
+            <input name="inputField"
+                   ng-class="inputClass"
+                   type="{{ type }}"
+                   placeholder="{{ placeholder }}"
+                   ng-model="model"
+                   ng-required="ngSettings.required"
+                   ng-change="update()"
+                   vv-minlength="minlength"
+                   vv-maxlength="maxlength"
+                   vv-email="email"
+                   vv-url="url"
+                   vv-min="min"
+                   vv-max="max"
+                   vv-pattern="pattern"
+                   vv-integer="integer"
+                   vv-float="float"
+                   vv-equal="equal"
+                   vv-notequal="notequal"
+                   as-enter="onEnter()"
+                   ng-disabled="ngSettings.disabled"
+                   as-filter-input="filterInput" />
+
+            <textarea name="inputField"
+                      ng-class="inputClass"
+                      placeholder="{{ placeholder }}"
+                      ng-model="model"
+                      ng-required="ngSettings.required"
+                      ng-change="update()"
+                      vv-minlength="minlength"
+                      vv-maxlength="maxlength"
+                      vv-equal="equal"
+                      vv-notequal="notequal"
+                      as-enter="onEnter()"
+                      ng-disabled="ngSettings.disabled"
+                      as-filter-input="filterInput"
+                      cols="{{ cols }}"
+                      rows="{{ rows }}"
+                      spellcheck="true"></textarea>
+
+            <i class="fa fa-check-circle" ng-show="inputForm.inputField.$dirty && inputForm.inputField.$valid && validators.length > 0"></i>
+
+            <span ng-repeat="validator in validators"
+                  ng-class="errorClass"
+                  ng-show="validator.show">
+                <i ng-class="errorIcon"></i> {{ validator.msg }}
+            </span>
+        </div>
+    </div>
+</form>

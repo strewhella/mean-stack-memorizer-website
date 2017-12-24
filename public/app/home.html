@@ -1,0 +1,43 @@
+<div ng-controller="HomeController as homeVm">
+    <div class="col-md-offset-3 col-md-6">
+        <div class="text-center">
+            <input class="form-control input-lg text-center" type="text"
+                   ng-model="homeVm.title"
+                   ng-required="true"
+                   as-enter="homeVm.createInstance()"
+                   placeholder="Enter a title and start memorising!"/>
+
+            <span class="text-center">
+                <button class="btn btn-lg btn-primary push-down" ng-disabled="!homeVm.title" ng-click="homeVm.createInstance()">Slice</button>
+            </span>
+        </div>
+    </div>
+
+    <div class="instructions col-md-push-2 col-md-10 push-down">
+        <div>
+            <h1 class="explanation">Just follow these 4 steps:</h1>
+        </div>
+        <div>
+            <h1 class="step-number">1</h1>
+            <h2 class="step-description">Create your slice</h2>
+        </div>
+        <div>
+            <h1 class="step-number">2</h1>
+            <h2 class="step-description">Bookmark the page for future visits</h2>
+        </div>
+        <div>
+            <h1 class="step-number">3</h1>
+            <h2 class="step-description">Save the questions you want to remember</h2>
+        </div>
+        <div>
+            <h1 class="step-number">4</h1>
+            <h2 class="step-description">Quiz yourself!</h2>
+        </div>
+    </div>
+
+    <div ng-repeat="instance in homeVm.instances">
+        <a href="{{ instance.url }}" class="btn btn-default">{{ instance.title }}</a>
+    </div>
+
+
+</div>

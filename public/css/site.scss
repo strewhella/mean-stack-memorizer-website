@@ -1,0 +1,249 @@
+@mixin background-pattern(){
+    background-image: url("/images/old_moon.png");
+    background-repeat: repeat;
+}
+
+@mixin btn-border($color){
+    border-bottom-width: 4px;
+    border-bottom-color: $color;
+    border-bottom-style: solid;
+    border-top-width: 1px;
+    border-top-color: $color;
+    border-top-style: solid;
+    border-left-width: 1px;
+    border-left-color: $color;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: $color;
+    border-right-style: solid;
+}
+
+$input_border_radius: 20px;
+$title-font: Luckiest Guy;
+$reading-font: Calibri;
+
+$primary-color: #6275CC;
+$secondary-color: #6B7499;
+$tertiary-color: #3A9FFF;
+$primary-highlight: #FFE9E2;
+$secondary-highlight: #CCB7B5;
+
+
+$title-shadow: 1px 1px 0 $secondary-highlight;
+
+.selected {
+    color: $tertiary-color;
+}
+
+.push-down {
+    margin-top: 30px;
+}
+
+.push-down-sm {
+    margin-top: 20px;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.content {
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+.form-control {
+    border: none;
+    box-shadow: none;
+    border-radius: 30px;
+    border-width: 3px;
+    border-color: $secondary-highlight;
+    border-style: solid;
+    transition: all 0.1s;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: $tertiary-color;
+}
+
+body {
+    font-family: $reading-font;
+    @include background-pattern();
+}
+
+.zoom.ng-enter, .zoom.ng-leave {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+.zoom.ng-enter {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+
+.zoom.ng-leave {
+    -webkit-animation-name: zoomOut;
+    animation-name: zoomOut;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $title-font;
+    color: $secondary-color;
+    text-shadow: $title-shadow;
+}
+
+.navbar-brand {
+    font-family: $title-font;
+    font-size: 2em;
+}
+
+.btn {
+    color: none;
+    outline: none;
+    box-shadow: none;
+    border:none;
+    font-family: $title-font;
+    border-radius: 30px;
+    transition: all 0.1s;
+}
+
+.btn:hover {
+    color: none;
+    outline: none;
+    box-shadow: none;
+    border:none;
+
+    background-color: lighten($primary-color, 5%);
+    border-top-width: 1px;
+    border-top-color: lightgrey;
+    border-top-style: solid;
+    border-left-width: 1px;
+    border-left-color: lightgrey;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-right-color: lightgrey;
+    border-right-style: solid;
+}
+
+.btn-lg {
+    width: 200px;
+}
+
+
+
+.active {
+    border-bottom-width:0;
+    background-color: darken($primary-color, 5%);
+}
+
+.active:hover {
+    background-color: darken($primary-color, 5%);
+}
+
+.brand {
+    font-size: 150%;
+    text-shadow: 3px 3px 0px $secondary-highlight;
+    color: $primary-color;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+
+.brand:hover {
+    text-shadow: 10px 10px 0px $secondary-highlight;
+    color: lighten($primary-color, 10%);
+}
+
+.brand:active, .brand:hover, .brand-visited, .brand:link {
+    text-decoration: none;
+}
+
+.step-number {
+    color: white;
+    display: inline-block;
+    text-align: center;
+    padding-right: 30px;
+    width: 70px;
+}
+
+.step-description {
+    color: darken($secondary-highlight, 20%);
+    text-shadow: $title-shadow;
+    margin-left: 30px;
+    display: inline;
+}
+
+.table-centered {
+    margin: 0 auto;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active {
+    color: white;
+    background-color: $primary-color;
+    @include btn-border(darken($primary-color, 10%));
+    transition: all 0.1s;
+}
+
+.btn-primary:active {
+    border-bottom-width: 0;
+}
+
+.btn-primary:hover {
+    background-color: darken($primary-color, 10%);
+    @include btn-border(darken($primary-color, 20%));
+}
+
+.btn-default, .btn-default:hover, .btn-default:active {
+    color: darken($secondary-highlight, 30%);
+    background-color: $secondary-highlight;
+    @include btn-border(darken($secondary-highlight, 10%));
+    transition: all 0.1s;
+}
+
+.btn-default[disabled] {
+    color: darken($secondary-highlight, 10%);
+}
+
+.btn-default:active {
+    border-bottom-width: 0;
+}
+
+.btn-default:hover {
+    background-color: darken($secondary-highlight, 10%);
+    @include btn-border(darken($secondary-highlight, 20%));
+}
+
+.fa-spinner {
+    color: white;
+}
+
+table, .white-bg {
+    background-color: white;
+    border-width: 4px;
+    border-style: solid;
+    border-color: darken($secondary-highlight, 10%);
+}
+
+.tag {
+    margin: 5px;
+}
+
+.separator {
+    border-style: inset;
+    border-width: 3px;
+    border-color: $secondary-highlight;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.readable {
+    font-family: $reading-font;
+}

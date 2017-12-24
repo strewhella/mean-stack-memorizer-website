@@ -1,0 +1,19 @@
+<div ng-controller="StatsController as statsVm" class="table-centered">
+    <table class="table table-striped push-down">
+        <thead>
+            <tr>
+                <th  ng-repeat="column in statsVm.columns"
+                     class="clickable text-center"
+                     ng-click="statsVm.setOrderBy(column.property)">{{:: column.header }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="stat in statsVm.stats | orderBy: statsVm.orderBy.property : statsVm.orderBy.reverse">
+                <td>{{:: stat.question }}</td>
+                <td class="text-center">{{:: stat.attempts }}</td>
+                <td class="text-center">{{:: stat.correct }}</td>
+                <td class="text-center">{{:: stat.incorrect }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

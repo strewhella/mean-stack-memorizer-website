@@ -1,0 +1,9 @@
+﻿<div ng-mouseleave="mouseleave()">
+    <as-rating-icon ng-repeat="i in range(max) track by $index"
+                    as-icon-on="iconOn"
+                    as-icon-off="iconOff"
+                    as-value="$index + 1"
+                    ng-disabled="disabled"
+                    as-display-total="totals.display"
+                    as-actual-total="totals.actual"></as-rating-icon>
+</div>

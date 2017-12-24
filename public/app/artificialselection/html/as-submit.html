@@ -1,0 +1,8 @@
+﻿<div>
+    <div ng-class="groupClass">
+        <div>
+            <input ng-class="inputClass" type="button" ng-disabled="disabled" ng-click="trySubmit()" value="{{ label }}" />
+            <span class="label" ng-class="status.class('label')" ng-show="status.message">{{ status.message }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div>
+    <div class="col-md-12">
+        <div class="text-center">
+            <span class="col-md-6">
+                <h4><span ng-show="vm.question.tags.length > 0" class="label label-primary readable">Current Tags</span></h4>
+                <button class="btn btn-sm btn-primary tag active-tag readable" ng-click="vm.removeTag(tag, $index)" ng-repeat="tag in vm.question.tags | orderBy:'toString()'">
+                    {{ tag }} <i class="fa fa-minus-circle"></i>
+                </button>
+            </span>
+            <span class="col-md-6">
+                <h4><span ng-show="vm.previousTags.length > 0" class="label label-default readable">Previous Tags</span></h4>
+                <button class="btn btn-sm btn-default tag inactive-tag readable" ng-click="vm.addPreviousTag(tag, $index)" ng-repeat="tag in vm.previousTags | orderBy:'toString()'">
+                    {{ tag }} <i class="fa fa-plus-circle"></i>
+                </button>
+            </span>
+        </div>
+
+        <div class="row col-md-12 push-down-sm">
+            <div class="col-md-2">
+                <label>Tags</label>
+                <input class="form-control" type="text" ng-model="vm.tag" as-enter="vm.addTag()" />
+                <button class="btn btn-default push-down-sm" ng-disabled="!vm.tag" ng-click="vm.addTag()">
+                    <i class="fa fa-pencil"></i> Add Tag
+                </button>
+            </div>
+
+            <div class="col-md-4">
+                <label>Question</label>
+                <input class="form-control" type="text" ng-model="vm.question.text" />
+            </div>
+
+            <div class="col-md-3">
+                <label>Answers</label>
+                <input class="form-control" type="text" ng-repeat="answer in vm.question.answers" ng-model="answer.text" ng-change="vm.updateAnswers()"/>
+                <button class="btn btn-default push-down-sm" ng-click="vm.addAnswer()" ng-disabled="!vm.answersFull">
+                    <i class="fa fa-plus-circle"></i> Add Answer
+                </button>
+            </div>
+
+            <div>
+                <button class="btn btn-lg btn-default push-down-sm"
+                        ng-click="vm.saveQuestion()"
+                        ng-disabled="vm.saving || vm.error || !vm.oneValidAnswer || vm.question.tags.length === 0 || !vm.question.text">
+                    <span ng-hide="vm.question._id">Save</span>
+                    <span ng-show="vm.question._id">Update</span>
+                    <i class="fa" ng-class="{ 'fa-cog fa-spin': vm.saving, 'fa-save': !vm.saving }"></i>
+                </button>
+                <span class="label label-danger" ng-show="vm.error">
+                    <i class="fa fa-info-circle"></i> {{ vm.error }}
+                </span>
+            </div>
+
+            <div>
+                <button class="btn btn-sm btn-default push-down-sm"
+                        ng-click="vm.resetQuestion()"
+                        ng-disabled="(vm.question.answers.length === 1 && !vm.question.answers[0].text) && vm.question.tags.length === 0 && !vm.question.text">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>

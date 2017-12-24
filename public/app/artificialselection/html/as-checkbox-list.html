@@ -1,0 +1,17 @@
+﻿<div>
+    
+    <h4 class="list-group-item-heading clickable">
+        {{ title }}
+    </h4>
+    <ul class="list-group">
+        <p class="list-group-item clickable" ng-click="clicked(key)" ng-repeat="key in keys">
+            <i class="glyphicon" ng-class="checkedIcon" ng-show="boxes[key].checked"></i>
+            <i class="glyphicon" ng-class="uncheckedIcon" ng-hide="boxes[key].checked"></i>
+            <span class="list-group-item-text">{{ key }}</span>
+            <span class="badge">{{ count }}</span>
+        </p>
+
+        <span class="btn-sm btn-success clickable" ng-click="setAll(true)">Check all</span>
+        <span class="btn-sm btn-danger clickable" ng-click="setAll(false)">Uncheck all</span>
+    </ul>
+</div>

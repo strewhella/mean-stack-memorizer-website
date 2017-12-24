@@ -1,0 +1,21 @@
+﻿<form name="inputField" novalidate>
+    <div ng-class="outerGroupClass">
+        <label ng-class="labelClass" for="{{ name }}" ng-show="label">{{ label }}</label>
+        <div ng-class="innerGroupClass">
+            <select class="form-control"
+                    name="{{ name }}"
+                    ng-model="model"
+                    ng-options="item[displayProp] for item in items"
+                    ng-change="selected()"
+                    ng-required="ngSettings.required"
+                    ng-disabled="ngSettings.disabled || items.length === 0 || loading || failed">
+                <option ng-if="defaultLabel && items.length > 0 && !loading && !failed" value="">{{ defaultLabel }}</option>
+            </select>
+            <i ng-show="failed" class="fa fa-remove red"></i>
+            <i ng-show="loading" class="fa fa-spin fa-circle-o-notch"></i>
+            <div ng-show="showOtherInput()">
+                <as-input as-label="{{ otherLabel }}" ng-model="other" ng-required="required && showOtherInput()" as-filter="{{ otherFilter }}"></as-input>
+            </div>
+        </div>
+    </div>
+</form>

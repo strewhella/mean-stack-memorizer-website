@@ -1,0 +1,24 @@
+<div ng-controller="InstanceController as instanceVm">
+
+    <div ng-hide="instanceVm.instance" class="text-center">
+        <h1><i class="fa fa-2x fa-spin fa-spinner"></i></h1>
+    </div>
+
+    <div ng-if="instanceVm.instance" class="text-center">
+
+        <h1>{{ instanceVm.title }}</h1>
+
+        <div class="btn-group">
+            <a class="btn btn-primary btn-lg"
+                    ng-repeat="tab in instanceVm.tabs"
+                    ng-disabled="tab.disabled()"
+                    ui-sref="{{ tab.state }}"
+                    ui-sref-active="active">
+
+                {{ tab.heading }}
+            </a>
+        </div>
+
+        <div class="zoom push-down" ui-view></div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div ng-show="instanceVm.instance" ng-controller="EditController as editVm">
+    <div ng-hide="instanceVm.instance.questions.length > 0">
+        <h3 class="readable">To save a question just add a tag, a question, and one or more answers</h3>
+    </div>
+
+    <div class="row">
+        <ms-question ms-instance="instanceVm.instance" ms-edit-question="editVm.editQuestion"></ms-question>
+    </div>
+
+    <div class="row push-down text-center">
+        <table class="table table-hover push-down text-center">
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <div class="text-center">
+                        <button class="btn btn-sm btn-default"
+                                ng-click="editVm.clearFilters()"
+                                ng-disabled="!editVm.filter.tags && !editVm.filter.text && !editVm.filter.answers && !(editVm.filter.hasOwnProperty('active'))">Clear Filters</button>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="col-md-1 text-center">Tags</th>
+                    <th class="col-md-3 text-center">Question</th>
+                    <th class="col-md-3 text-center">Answers</th>
+                    <th class="col-md-1 text-center">On/Off</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><input class="form-control input-sm" type="text" ng-model="editVm.filter.tags" placeholder="Filter by tag" /></td>
+                    <td><input class="form-control input-sm" type="text" ng-model="editVm.filter.text" placeholder="Filter by question" /></td>
+                    <td><input class="form-control input-sm" type="text" ng-model="editVm.filter.answers" placeholder="Filter by answer" /></td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-default"
+                                    ng-click="editVm.filter.active = true"
+                                    ng-class="{ 'active':editVm.filter.active }">
+                                On
+                            </button>
+                            <button class="btn btn-sm btn-default"
+                                    ng-click="editVm.filter.active = false"
+                                    ng-class="{ 'active':editVm.filter.active === false }">
+                                Off
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="clickable"
+                    ng-repeat="question in instanceVm.instance.questions | fields: editVm.filter"
+                    ng-show="question.show"
+                    ng-class="{ 'info': editVm.editQuestion._id === question._id }"
+                    ng-click="editVm.edit(question)">
+
+                    <td>{{ question.tags | orderBy:'toString()' | join: ', ' }}</td>
+                    <td>{{ question.text }}</td>
+                    <td>{{ question.answers | orderBy:'toString()' | join: ', ' }}</td>
+                    <td>
+                        <button class="btn btn-sm"
+                                ng-click="editVm.toggleActive($event, question)" ng-disabled="question.toggling">
+                            <i ng-show="!question.toggling && question.active" class="fa fa-minus"></i>
+                            <i ng-show="!question.toggling && !question.active" class="fa fa-plus"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
